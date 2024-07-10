@@ -1,11 +1,13 @@
 {
   "compilerOptions": {
+    "forceConsistentCasingInFileNames": true,
     "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
     "skipLibCheck": true,
     "strict": true,
     "noEmit": true,
     "esModuleInterop": true,
+    "types": ["node", "webpack-env"],
     "module": "esnext",
     "moduleResolution": "bundler",
     "resolveJsonModule": true,
@@ -18,7 +20,17 @@
       }
     ],
     "paths": {
-      "@/*": ["./src/*"]
+      "@/*": ["./src/*"],
+      "@#/*": ["./src/scripts/*"],
+      "@&/*": ["./src/components/*"],
+      "@[]/*": ["./src/containers/*"],
+      "@style": ["./src/styles/index.css"],
+      "@type/*": ["./src/types/*"],
+      "@conf/*": ["./src/configs/*"],
+      "@lib/*": ["./src/lib/*"],
+      "@static/*": ["./public/static"],
+      "@lay": ["./src/app/layout.tsx"],
+      "@index" : ["./src/app/page.tsx"], 
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
