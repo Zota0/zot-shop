@@ -1,5 +1,5 @@
 "use client";
-import ReactSrcDocIframe from "react-srcdoc-iframe";
+import Iframe from "react-iframe";
 
 export default function GeoMapFrame() {
 	return (
