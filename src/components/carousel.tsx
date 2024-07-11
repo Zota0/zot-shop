@@ -1,14 +1,9 @@
 "use client";
-import React from "react";
-import ReactSrcDocIframe from "react-srcdoc-iframe";
+import React, { ReactElement } from "react";
 import Iframe from "react-iframe";
 import { Button } from "@&/ui/button";
 import { Input } from "@&/ui/input";
-import { CarouselProps } from "@type/carousel";
-
-type CarouselElementProps = {
-	props: CarouselProps;
-};
+import { CarouselElementProps } from "@type/carousel";
 
 const CarouselElement: React.FC<CarouselElementProps> = ({ props }) => {
 	const [current, setCurrent] = React.useState(0);
@@ -25,17 +20,21 @@ const CarouselElement: React.FC<CarouselElementProps> = ({ props }) => {
 		setCurrent(index);
 	};
 
+	const CurrentSrcDoc = React.memo(() => (
+		<>
+			{props[current]?.srcdoc}
+		</>
+	));
+	CurrentSrcDoc.displayName = "CurrentSrcDoc";
+
 	const Frame = React.memo(() => (
-		(props[current].srcdoc && props[current].srcdoc != "" && props[current].srcdoc != undefined) ?
-		<ReactSrcDocIframe
-			src={"about:blank?theme=dark"}
-			srcDoc={props[current]?.srcdoc}
+		(props[current].srcdoc && props[current].srcdoc != undefined) ?
+		<span
 			title={props[current]?.title}
 			className='object-contain w-full h-full z-0'
-			allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; nocookie;'
-			allowFullScreen
-			
-		/>
+		>
+			<CurrentSrcDoc />
+		</span>
 		:
 		<Iframe
 			url={`${props[current]?.url}?theme=${'dark'}`}
@@ -61,19 +60,23 @@ const CarouselElement: React.FC<CarouselElementProps> = ({ props }) => {
 	);
 	Selector.displayName = "CarouselSelector";
 
-	const ExactSelector = React.memo(() => (
+	const ExactSelectors = React.memo(() => (
 		<div
+			key={`CarouselExactSelectors-parent`}
 			className='m-0 p-0 mt-8 pb-4 div-c w-full gap-4'
 			aria-label='ExactSelectionGroup'
 		>
 			{props.map((item, index) => (
 				<>
-					<Selector key={index} index={index} />
+					<Selector
+						key={index}
+						index={index}
+					/>
 				</>
 			))}
 		</div>
 	));
-	ExactSelector.displayName = "CarouselExactSelector";
+	ExactSelectors.displayName = "CarouselExactSelectors";
 
 	return (
 		<>
@@ -100,7 +103,7 @@ const CarouselElement: React.FC<CarouselElementProps> = ({ props }) => {
 					</Button>
 				</div>
 				<div className="div-c w-full mt-4 z-[2]">
-					<ExactSelector />
+					<ExactSelectors />
 				</div>
 			</div>
 		</>
