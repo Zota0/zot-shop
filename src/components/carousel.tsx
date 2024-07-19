@@ -102,7 +102,7 @@ const CarouselElement: React.FC<CarouselElementProps> = ({ props }) => {
 						&gt;
 					</Button>
 				</div>
-				<div className="div-c w-full mt-4 z-[2]">
+				<div className="div-c w-full mt-4 mb-20 z-[2]">
 					<ExactSelectors />
 				</div>
 			</div>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src='https://cdn.tailwindcss.com'></script>
+    <title>Document</title>
+    <link rel="stylesheet" href="./styles/index.css">
+</head>
+<body class='p-0 m-auto div-c bg-black text-white min-h-svh w-full'>
+    
+    <div aria-label='Grid Product' class='relative z-10 m-0 p-0 flex flex-col justify-center text-center align-middle gap-0 overflow-hidden w-[1024px] h-[1024px] border-2 border-slate-800'>
+        <div aria-label='Product Image' class='relative w-full h-full'>
+            <img src='' alt="">
+        </div>
+        <div class='relative bg-black bg-opacity-50 flex flex-col justify-center gap-12 py-8 -top-[15%]'>
+            <div class='flex justify-center gap-4 flex-row'>
+                <span title='Product Price'>Price: {item.price}</span>
+                <span title='Product Discount'>-{item.discount}%</span>
+                <span title='Product Available Quantity'>Quantity: {item.quantity}</span>
+            </div>
+
+            <div class='flex justify-center gap-24 flex-row'>
+                <button title='Add to Cart'>Add to Cart</button>
+                <button title='Buy Now'>Buy Now</button>
+            </div>
+        </div>
+    </div>
+    <script>
+        document.querySelector('img').src = 'https://via.placeholder.com/1024x1024';
+    </script>
+</body>
+</html>

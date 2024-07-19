@@ -1,3 +1,4 @@
+@charset "UTF-8";
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -132,27 +133,4 @@
         --bl_input: 217.2 32.6% 17.5%;
         --bl_ring: 224.3 76.3% 48%;
     }
-}
-
-.div-c {
-    @apply flex justify-center items-center align-middle text-center;
-}
-
-:root {
-    --size-header: 72px;
-    --size-footer: 360px;
-}
-header {
-    @apply w-full div-c gap-0 h-[var(--size-header)];
-    @apply bg-muted;
-}
-
-footer {
-    @apply w-full div-c gap-0 h-[var(--size-footer)];
-    @apply bg-secondary;
-}
-
-main {
-    @apply w-full div-c gap-0 h-full;
-    min-height: calc(100svh - var(--size-header));
 }

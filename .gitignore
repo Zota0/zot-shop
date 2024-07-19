@@ -39,3 +39,11 @@ next-env.d.ts
 .env
 local.env
 /env/*
+
+# not for this
+*.py
+*.rs
+
+# dont add '/backend'
+/backend
+

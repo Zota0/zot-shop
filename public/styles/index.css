@@ -1,0 +1,84 @@
+@charset "UTF-8";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@tailwind variants;
+
+@import url('theme.css');
+
+.div-c {
+    @apply flex justify-center items-center align-middle text-center;
+}
+
+:root {
+    --size-header: 72px;
+    --size-footer: 360px;
+}
+header {
+    @apply w-full div-c flex-row px-8 top-0 right-0 z-[100] fixed gap-0 h-[var(--size-header)];
+    @apply bg-muted;
+    @apply drop-shadow-md;
+}
+
+footer {
+    @apply w-full div-c gap-0 h-[var(--size-footer)];
+    @apply bg-secondary;
+}
+
+main {
+    margin-top: calc(var(--size-header) - 20px);
+    @apply w-full div-c gap-0 h-full;
+    min-height: calc(100svh - var(--size-header));
+}
+
+.h-link_style {
+    @apply font-semibold;
+    display: inline;
+    text-shadow: 2px 0px 0px #30f,
+        0px 3px 3px black;
+}
+
+.h-link_style:hover {
+    @aply font-extrabold;
+    @apply text-primary;
+    text-shadow: 2px 0px 0px #10d,
+        0px 3px 3px black;
+}
+
+.h-link_style:active {
+    @apply font-bold;
+    @apply text-primary-foreground;
+    text-shadow: 0px 3px 3px black;
+}
+
+.ui-btn {
+    display: inline;
+
+    stroke-width: 2;
+    stroke: #c8e;
+}
+
+.ui-btn:hover {
+    stroke-width: 3;
+    stroke: hsl(var(--primary));
+}
+
+.ui-btn:active {
+    stroke-width: 3;
+    stroke: hsl(var(--primary-foreground));
+}
+
+
+
+.scroll-top {
+    position: fixed;
+    bottom: 2%;
+    right: 2%;
+
+    @apply div-c border-4 border-primary bg-secondary rounded-full w-16 h-16 overflow-hidden;
+}
+
+.scroll-top > .arrow {
+    @apply div-c w-full h-full;
+}

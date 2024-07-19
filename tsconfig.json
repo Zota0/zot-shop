@@ -24,7 +24,7 @@
       "@#/*": ["./src/scripts/*"],
       "@&/*": ["./src/components/*"],
       "@[]/*": ["./src/containers/*"],
-      "@style": ["./src/styles/index.css"],
+      "@style": ["./public/styles/index.css"],
       "@type/*": ["./src/types/*"],
       "@conf/*": ["./src/configs/*"],
       "@lib/*": ["./src/lib/*"],

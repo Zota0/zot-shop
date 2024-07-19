@@ -2,9 +2,48 @@ import React from 'react';
 import Link from 'next/link';
 import * as icn from 'lucide-react';
 import { Input } from '@&/ui/input';
+import { Button } from './ui/button';
 
 const Header = () => {
 	const pageName = process.env.PAGE_NAME;
+
+	const SearchInput = React.memo(
+		() => (
+			<Input
+				name='search'
+				className='rounded-l-xl bg-re-secondary rounded-r-lg'
+				type='text'
+				accessKey='q'
+				placeholder='Search products'
+			/>
+		)
+	);
+	SearchInput.displayName = 'SearchInput';
+
+	const SearchBtn = React.memo(() => (
+		<Button
+			className='bg-re-secondary'
+			title='search button'
+			type='submit'
+		>
+			<icn.Search size={24} color='#c8e' strokeWidth={3} />
+		</Button>
+	));
+	SearchBtn.displayName = "SearchButton";
+
+	const SearchForm = React.memo(
+		() => (
+			<form
+				className='div-c flex-grow-[4] gap-2 bg-re-secondary pl-1 pr-3'
+				method='get'
+				action='/products'
+			>
+				<SearchInput />
+				<SearchBtn />
+			</form>
+		)
+	);
+	SearchForm.displayName = 'SearchForm';
 
 	return (
 		<>
@@ -12,7 +51,7 @@ const Header = () => {
 			<form
 				className='div-c flex-grow-[4] gap-2 bg-re-secondary pl-1 pr-3'
 				method='get'
-				action='/search'
+				action='/products'
 			>
 				<Input
 					name='search'
@@ -30,23 +69,23 @@ const Header = () => {
 				</button>
 			</form>
 			<div
-				className='div-c flex-grow-[5] gap-8 flex-row uppercase font-extrabold text-2xl'
+				className='div-c flex-grow-[5] gap-8 flex-row uppercase text-2xl text-[#c8e]'
 				role='list'
 				aria-label='Site navigation'
 			>
 				<div role='listitem'>
 					<Link title='Home page' href='/'>
-						Home
+						<span className='h-link_style'>Home</span>
 					</Link>
 				</div>
 				<div role='listitem'>
 					<Link title='Products' href='/products'>
-						Products
+						<span className='h-link_style'>Products</span>
 					</Link>
 				</div>
 				<div role='listitem'>
 					<Link title='Categories' href='/categories'>
-						Categories
+						<span className='h-link_style'>Categories</span>
 					</Link>
 				</div>
 			</div>
@@ -56,17 +95,27 @@ const Header = () => {
 				aria-label='Client actions'
 			>
 				<div role='listitem'>
-					<Link title='Home page' href='/cart'>
+					<Link title='Cart' href='/cart'>
 						<icn.ShoppingBasket
-							size={32}
+							size={48}
 							color='#c8e'
 							strokeWidth={3}
+							className='ui-btn'
 						/>
 					</Link>
 				</div>
 				<div role='listitem'>
-					<Link title='Categories' href='/account'>
-						<icn.UserRound size={32} color='#c8e' strokeWidth={3} />
+					<Link
+						title='Account'
+						href='/account'
+						className='*:hover:text-[#10d]'
+					>
+						<icn.UserRound
+							size={48}
+							color='#c8e'
+							strokeWidth={3}
+							className='ui-btn'
+						/>
 					</Link>
 				</div>
 			</div>
