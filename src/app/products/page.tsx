@@ -13,7 +13,7 @@ const Page = () => {
     const [maxPrice, setMaxPrice] = useState<number|null>(null);
     const [search, setSearch] = useState<string|null>(null);
 
-    function query() {
+    async function query() {
         if (params && params !== undefined && params !== null) {
             if(params.get('search') !== null && params.get('search') !== undefined) {
                 console.log("search param: ", params.get('search'));
@@ -29,9 +29,11 @@ const Page = () => {
     query();
 
     return (
-        <div>
-            {params.get('search')}
-        </div>
-    );
+		<div>
+			<Suspense fallback={<div>Loading...</div>}>
+                {params.get('search')}
+            </Suspense>
+		</div>
+	);
 };
 export default Page;
