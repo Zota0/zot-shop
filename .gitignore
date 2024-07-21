@@ -47,3 +47,5 @@ local.env
 # dont add '/backend'
 /backend
 
+
+/test

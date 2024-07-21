@@ -37,14 +37,20 @@ export default function RootLayout({
 	const currentLang = "en";
 
 	return (
-		<html lang={currentLang}>
+		<html lang={currentLang} suppressHydrationWarning>
 			<body
 				className={cn(
 					"font-sans min-h-screen bg-background text-foreground antialiased",
 					fontSans.variable
 				)}
 			>
-				<Theme attribute='class' defaultTheme='dark' enableSystem>
+				<Theme
+					attribute='class'
+					defaultTheme='dark'
+					enableSystem
+					enableColorScheme
+					disableTransitionOnChange={false}
+				>
 					<header>
 						<HeaderElement />
 					</header>
@@ -58,6 +64,7 @@ export default function RootLayout({
 		</html>
 	);
 }
+
 
 
 

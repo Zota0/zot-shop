@@ -8,6 +8,6 @@ export interface CartData {
 export type CartItems = CartItem[];
 
 export interface CartItem {
-    id: string;
-    quantity: number;
+    id: number;
+    q: number;
 }
