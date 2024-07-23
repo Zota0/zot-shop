@@ -1,39 +1,60 @@
 "use client";
 import React, { useState, useEffect, Suspense } from "react";
 import { useSearchParams } from "next/navigation";
-import { ItemArray, ItemData } from "@type/item";
+import { ItemsArray, ItemData } from "@type/item";
 
 const Page = () => {
 	const [page, setPage] = useState<number>(0);
 	const [maxPerPage, setMaxPerPage] = useState<number>(5);
 	const [categories, setCategories] = useState<number[] | string>("all"); // Now accepts numbers or "all"
-	const [products, setProducts] = useState<ItemArray | null>(null);
+	const [products, setProducts] = useState<ItemsArray | null>(null);
 	const [minPrice, setMinPrice] = useState<number>(0);
 	const [maxPrice, setMaxPrice] = useState<number | null>(null);
 	const [search, setSearch] = useState<string | null>(null);
 
 	useEffect(() => {
-		const testProducts: ItemArray = [
+		const testProducts: ItemsArray = [
 			{
 				id: 1,
 				title: "Product 1",
 				price: 100,
 				available: true,
 				category_id: 1, // Category ID is now a number
+				images: [],
+				available_quantity: 10,
+				brand: "ZotShop",
+				model: "ZotShop",
+				short_description: "ZotShop",
+				rating: { value: 0, count: 0 },
+				discount: "-10%",
 			},
 			{
 				id: 2,
 				title: "Product 2",
-				price: 200,
+				price: 350,
 				available: true,
-				category_id: 2, // Category ID is now a number
+				category_id: 1, // Category ID is now a number
+				images: [],
+				available_quantity: 10,
+				brand: "ZotShop",
+				model: "ZotShop",
+				short_description: "ZotShop - item",
+				rating: { value: 0, count: 0 },
+				discount: "-80%",
 			},
 			{
 				id: 3,
 				title: "Product 3",
-				price: 300,
+				price: 500,
 				available: true,
 				category_id: 1, // Category ID is now a number
+				images: [],
+				available_quantity: 10,
+				brand: "zot",
+				model: "Shop",
+				short_description: "ZotShop",
+				rating: { value: 0, count: 0 },
+				discount: "-20%",
 			},
 		];
 		setProducts(testProducts);
